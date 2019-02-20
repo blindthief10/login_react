@@ -6,7 +6,7 @@ export default class UserPage extends Component {
   render() {
     return (
       <div className="container my-4">
-        <NavList />
+        <NavList unauthorize={this.props.unauthorize}/>
         <div className="jumbotron">
           <Route exact path="/user" render={() => <h2>Hello {this.props.userName}</h2>}/>
           <Route path="/user/dashboard" render={() => <h2>That is your dashboard</h2>}/>
