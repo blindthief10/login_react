@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
+import UserPage from './components/User';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 export default class App extends Component {
@@ -24,7 +25,6 @@ export default class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.userName === 'Jake' && this.state.password === 'djarte023') {
-      console.log('You are logged in!');
       this.setState({hasFailed: false, isAuth: true});
     } else {
       this.setState({hasFailed: true});
@@ -43,12 +43,12 @@ export default class App extends Component {
     return (
       <BrowserRouter>
         <>
-            <Route exact path="/" render={() => <Form formProps={ formProps } />} />
+          <Route exact path="/" render={() => <Form formProps={ formProps } />} />
 
-            <Switch>
-              <Route path="/user" render={() => <h3>Hello User</h3>} />
-              {this.state.isAuth && <Redirect to="/user" />}
-            </Switch>
+          <Switch>
+            <Route path="/user" render={() => <UserPage userName={this.state.userName}/>} />
+            {this.state.isAuth && <Redirect to="/user" />}
+          </Switch>
         </>
       </BrowserRouter>
     )
