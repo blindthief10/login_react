@@ -27,14 +27,14 @@ export default class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (this.state.userName === 'Jake' && this.state.password === 'djarte023') {
+    if (this.state.userName === 'Jake' && this.state.password === '123') {
       this.setState({hasFailed: false, isAuth: true});
     } else {
       this.setState({hasFailed: true});
     }
   }
 
-  unauthorize(ev) {
+  unauthorize() {
     this.setState({isAuth: false});
   }
 
