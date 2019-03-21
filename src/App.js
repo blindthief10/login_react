@@ -60,6 +60,7 @@ export default class App extends Component {
             <Route path="/user" render={() => <UserPage unauthorize={this.unauthorize} userName={this.state.userName}/>} />
             {this.state.isAuth && <Redirect to="/user" />}
           </Switch>
+          <Route render={<Form formProps={formProps} />} />
         </>
       </BrowserRouter>
     )
